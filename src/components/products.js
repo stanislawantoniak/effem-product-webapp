@@ -11,7 +11,7 @@ const PRODUCTS = gql`
     }
   }
 `;
-
+ 
 const products = () => {
 		const { loading, error, data } = useQuery(PRODUCTS);
 
