@@ -3,12 +3,7 @@ import React from "react"
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-
-class Products extends Component {
-
-	render() {
-
-		const PRODUCTS = gql`
+const PRODUCTS = gql`
   {
     products {
       id
@@ -16,11 +11,13 @@ class Products extends Component {
     }
   }
 `;
+
+const products = () => {
 		const { loading, error, data } = useQuery(PRODUCTS);
 
 		if (loading) return <p>Loading...</p>;
 		if (error) return <p>Error :(</p>;
-
+		
 		return data.products.map(({ id, brand, name }) => (
 			<div key={id} >
 				<p>
@@ -29,7 +26,5 @@ class Products extends Component {
 			</div>
 		));
 	}
-}
-
-export default Products
-
+ 
+export default products;
