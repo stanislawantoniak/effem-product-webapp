@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+console.log('port: ',process.env.PORT);
+
 function App() {
   return (
     <div className="App">
