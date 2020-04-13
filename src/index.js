@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+console.log('port: ',process.env.PORT);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
