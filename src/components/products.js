@@ -31,7 +31,6 @@ const Products = () => {
 			<tbody>
 				{data.products.map(({ id, brand, name }) => (
 					<tr key={id}>
-
 						<td><Link to={id}>{id}</Link></td>
 						<td>{brand}</td>
 						<td>{name}</td>
