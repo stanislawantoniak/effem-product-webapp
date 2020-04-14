@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './app.css';
 import Header from './header'
 import client from '../client/client'
 import Products from './products'
