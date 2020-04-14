@@ -2,6 +2,7 @@ import React from "react"
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { Link,useParams } from "react-router-dom";
+import SEO from './seo'
 
 const PRODUCT = gql`
  			 query Product($id: ID!) {
@@ -12,6 +13,13 @@ const PRODUCT = gql`
 					brand
 			    	SAPProductTitle
 					retailPrice
+					   	reviewStats {
+      					averageRating
+					    ratingRange
+      					reviewCount
+      					recommendedCount
+      					notRecommendedCount
+    				}
 			    	digitalAssets {
 			    	  url
 			    	}
@@ -32,6 +40,7 @@ const Product = () => {
 
 	return (
 		<div>
+			<SEO title={'Product '+data.product.id} />
 			<h2><Link to='/'>Go Back</Link></h2>
 			<h3>Product Details</h3>
 			<table>
@@ -59,6 +68,23 @@ const Product = () => {
 					<tr key={data.product.id}>
 						<td>SAP Product Title</td>
 						<td>{data.product.SAPProductTitle}</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Review stats</h3>
+			<table>
+				<tbody>
+					<tr key={data.product.id}>
+						<td>Average rating/range</td>
+						<td>{data.product.reviewStats.averageRating} / {data.product.reviewStats.ratingRange}</td>
+					</tr>
+					<tr key={data.product.id}>
+						<td>Reviews #</td>
+						<td>{data.product.reviewStats.reviewCount}</td>
+					</tr>
+					<tr key={data.product.id}>
+						<td>Positive/negative reviews #</td>
+						<td>{data.product.reviewStats.recommendedCount} / {data.product.reviewStats.notRecommendedCount}</td>
 					</tr>
 				</tbody>
 			</table>
