@@ -107,7 +107,7 @@ const Product = () => {
 										mozallowfullscreen="false"
 
 									/>
-									: <img src={asset.url.replace('http', 'https')}></img>
+									: <img src={asset.url.replace('http', 'https')} alt={data.product.name}></img>
 								}
 							</div>
 							<hr />
