@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import SEO from './seo'
 
 const PRODUCTS = gql`
-  {
-    products {
-      id
-      brand
-	  name
+  query Products { 
+    	products {
+      		id
+      		brand
+	  	name
+    	}
     }
-  }
 `;
 
 const Products = () => {

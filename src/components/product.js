@@ -5,26 +5,26 @@ import { Link,useParams } from "react-router-dom";
 import SEO from './seo'
 
 const PRODUCT = gql`
- 			 query Product($id: ID!) {
-			    product(id: $id) {
-			   		id
-			    	name
-					description
-					brand
-			    	SAPProductTitle
-					retailPrice
-					   	reviewStats {
-      					averageRating
-					    ratingRange
-      					reviewCount
-      					recommendedCount
-      					notRecommendedCount
-    				}
-			    	digitalAssets {
-			    	  url
-			    	}
-			  	}  
-			  }`;
+ 	query Product($id: ID!) {
+	    product(id: $id) {
+	   		id
+	    	name
+			description
+			brand
+	    	SAPProductTitle
+			retailPrice
+		   	reviewStats {
+    			averageRating
+			    ratingRange
+    			reviewCount
+    			recommendedCount
+    			notRecommendedCount
+    		}
+	    	digitalAssets {
+	    	  	url
+			}
+		}  
+	}`;
 
 const Product = () => {
 
@@ -98,7 +98,7 @@ const Product = () => {
 								{!asset.url.endsWith('jpg') ?
 									<iframe
 										src={asset.url.replace('http', 'https')}
-										title="Salsify Viedo"
+										title="Salsify Video"
 										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 										frameBorder="5"
 										width="500"
