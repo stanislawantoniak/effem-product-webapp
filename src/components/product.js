@@ -1,7 +1,7 @@
 import React from "react"
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SEO from './seo'
 
 const PRODUCT = gql`
@@ -40,7 +40,7 @@ const Product = () => {
 
 	return (
 		<div>
-			<SEO title={'Product '+data.product.id} />
+			<SEO title={'Product ' + data.product.id} />
 			<h2><Link to='/'>Go Back</Link></h2>
 			<h3>Product Details</h3>
 			<table>
@@ -91,7 +91,7 @@ const Product = () => {
 			<div>
 				<h3>Digital Assets</h3>
 				<div>
-					{data.product.digitalAssets.map((asset) => (
+					{data.product.digitalAssets.filter(	function(asset){ return asset.url != null} ).map((asset) => (
 						<div class='imgContainer'>
 							<div>{asset.name}</div>
 							<div>
@@ -112,6 +112,7 @@ const Product = () => {
 							</div>
 							<hr />
 						</div>
+					
 					))
 					}
 				</div>
